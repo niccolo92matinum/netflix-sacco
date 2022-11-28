@@ -7,6 +7,8 @@ import SignupScreen from './SignupScreen';
 function LoginScreen() {
 
     const [signIn, setSignIn] = useState(false);
+
+    console.log(signIn)
   return (
     <div className='loginScreen'> 
    

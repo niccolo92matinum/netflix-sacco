@@ -21,7 +21,7 @@ useEffect(()=>{
     fetchData()
 }, [fetchUrl])
 
-console.log(movies, 'movies')
+
 
   return (
     <div className='row'>

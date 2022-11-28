@@ -8,7 +8,8 @@ function SignupScreen() {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
 
-
+// firebase gestisce tutta la questione rigurdo un nuovo account 
+// anche nelle validazioni
 const register = (e) =>{
     e.preventDefault();
 
@@ -23,8 +24,16 @@ const register = (e) =>{
         })
 }
 
+// firebase gestisce il signIn controllando che l'utente sia già iscritto o meno
 const signIn = (e) =>{
     e.preventDefault();
+
+    auth.signInWithEmailAndPassword(
+        emailRef.current.value,
+        passwordRef.current.value    
+        ).then((authUser) =>{
+            console.log(authUser);
+        }).catch((error)=> alert(error.message));
 }
 
 

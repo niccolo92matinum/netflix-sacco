@@ -3,7 +3,7 @@ import "./Banner.css";
 import axios from "./axios";
 import requests from "./Requests"
 
-function Bannen() {
+function Banner() {
 
   const [movie, setMovie] = useState([])
 
@@ -11,7 +11,7 @@ function Bannen() {
   useEffect(()=> {
     async function fetchData(){
       const request = await axios.get(requests.fetchBanner);
-   // console.log(request, 'request')
+   console.log(request, 'request')
  
       setMovie(
         request.data.results[
@@ -29,7 +29,7 @@ function Bannen() {
 
   //truncate if the description test is too long
   function truncate(string,n){
-    return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+    return (string||'').length > n ? string.substr(0, n - 1) + '...' : string;
   }
 
   return (
@@ -37,20 +37,20 @@ function Bannen() {
      className='banner'
      style={{
       backgroundSize:"cover",
-      backgroundImage:  `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` ,
+      backgroundImage:  `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")` ,
       backgroundPosition: "center center"
      }}
     >
       <div className='banner__contents'>
         <h1 className='banner__title'>
-          {movie?.title || movie?.name || movie?.original_name}
+          {movie.title || movie.name || movie.original_name}
         </h1>
         <div className='banner__buttons'>
           <button className='banner__button'>Play</button>
           <button className='banner__button'>My List</button>
         </div>
         <h1 className='banner__description'>
-          {truncate(movie?.overview,100)}
+          {truncate(movie.overview,100)}
         </h1>
 
       </div>
@@ -60,4 +60,4 @@ function Bannen() {
   )
 }
 
-export default Bannen
+export default Banner

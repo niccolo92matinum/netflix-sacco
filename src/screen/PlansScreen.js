@@ -14,7 +14,7 @@ function PlansScreen() {
     const user = useSelector(selectUser)
 
     useEffect(()=>{
-      /*
+     
       db.collection('products')
   .where('active', '==', true)
   .get()
@@ -27,7 +27,7 @@ function PlansScreen() {
     
       });
     });
-  });*/
+  });
      
       db.collection("products")
       .where("active", "==" ,true)
